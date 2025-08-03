@@ -7,7 +7,7 @@ class Solution:
                 continue
             
             for i, v in enumerate(t):
-                if v == t[i]:
+                if v == target[i]:
                     good.add(i)
                 
         return len(good) == 3
