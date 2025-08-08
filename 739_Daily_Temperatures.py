@@ -20,3 +20,6 @@ class Solution:
             stack.append(i)
 
         return res
+    
+    # time complexity: O(n) where n is the length of temperatures
+    # space complexity: O(n) for the stack and result list
