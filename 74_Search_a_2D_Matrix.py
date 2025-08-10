@@ -1,28 +1,30 @@
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
-        if not matrix or not matrix[0]:
-            return False
-
-        m = len(matrix)
-        n = len(matrix[0])
-
-        low = 0
-        high = (m * n) - 1
-
-        while low <= high:
-            mid = (low + high) // 2
-            
-            # Convert 1D index to 2D coordinates
-            row = mid // n
-            col = mid % n
-
-            mid_element = matrix[row][col]
-
-            if mid_element == target:
-                return True
-            elif mid_element < target:
-                low = mid + 1
+        ROWS, COLS = len(matrix), len(matrix[0])
+        top, bot = 0, ROWS - 1
+        while top <= bot:
+            m_row = (top + bot) // 2
+            if target > matrix[m_row][-1]:
+                top = m_row + 1
+            elif target < matrix[m_row][0]:
+                bot = m_row - 1
             else:
-                high = mid - 1
+                break
+            
+        if not (top <= bot):
+            return False
         
+        m_row = (top + bot) // 2
+        l, r = 0, COLS - 1
+        while l <= r:
+            m = (l + r) // 2 
+            if target > matrix[m_row][m]:
+                l = m + 1
+            elif target < matrix[m_row][m]:
+                r = m - 1
+            else:
+                return True
         return False
+    
+    # time complexity: O(log(m * n)), where m is the number of rows and n is the number of columns (due to the binary search in both dimensions).
+    # space complexity: O(1), as we are using a constant amount of space for variables (due to no additional data structures being used.)
