@@ -100,4 +100,4 @@ This repository is licensed under the [MIT License](LICENSE).
 
 ---
 
-**My LeetCode Profile:** [aliaoun](https://leetcode.com/u/aliaoun/)
+**My LeetCode Profile:** [aliaoun](https://www.linkedin.com/in/ali-aoun/)
